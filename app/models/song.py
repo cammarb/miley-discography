@@ -9,5 +9,5 @@ class Song(db.Model, CRUD_mixing):
     artist = db.Column(db.String, nullable=False)
     featuring = db.Column(db.String)
     lenght = db.Column(db.Time)
-    album_id = db.Column(db.Integer, ForeignKey("album.id"), nullable=False)
+    album_id = db.Column(db.Integer, ForeignKey("album.id"))
     album = db.relationship("Album", back_populates="tracklist")
