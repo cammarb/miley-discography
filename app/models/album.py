@@ -12,4 +12,4 @@ class Album(db.Model, CRUD_mixing):
     tracklist = db.relationship(
         "Song", back_populates="album", cascade="all, delete-orphan"
     )
-    total_lenght = db.Column(db.Time)
+    total_length = db.Column(db.Time)
