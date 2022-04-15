@@ -5,6 +5,6 @@ from app.models.album import Album
 blueprint = Blueprint("albums", __name__)
 
 
-@blueprint.get("/")
+@blueprint.get("/albums")
 def get_albums():
-    return render_template("list_albums.html")
+    return render_template("albums/list_albums.html")
