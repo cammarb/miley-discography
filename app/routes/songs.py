@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, render_template
 from flask import Blueprint
-from app.models import song
+from app.models.song import Song
 
 blueprint = Blueprint("songs", __name__)
 
