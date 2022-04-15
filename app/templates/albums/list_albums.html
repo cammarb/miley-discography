@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% block title %}Albums{% endblock %}
+{% block head%}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block container %}
+<h1>Albums</h1>
+<button type="button" class="btn btn-primary">Add</button>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Release date: </h6>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
+    </div>
+</div>
+
+
+
+<!-- Album info Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">album.title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Release date: album.release_date</li>
+                    <li>Number of songs: album.number_of_songs</li>
+                    <li>Lemgth: album.total_length</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% for album in albums %}
+{% endfor %}
+{% endblock %}
