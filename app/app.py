@@ -1,6 +1,6 @@
 from flask import Flask
 from app import routes
-from app.extensions.database import db
+from app.extensions.database import db, migrate
 from . import routes
 
 
@@ -16,6 +16,7 @@ def create_app():
 
 def register_extensions(app: Flask):
     db.init_app(app)
+    migrate.init_app(app, db)
 
 
 def register_blueprints(app: Flask):
