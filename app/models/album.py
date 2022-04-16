@@ -6,11 +6,11 @@ class Album(db.Model, CRUD_mixing):
     title = db.Column(db.String, nullable=False, unique=True)
     slug = db.Column(db.String, nullable=False, unique=True)
     release_date = db.Column(db.Date, nullable=False)
-    is_live = db.Column(db.Boolean, nullable=False)  # if True, album is live version
-    is_ep = db.Column(db.Boolean, nullable=False)  # if True, it's an EP (Extended Play)
+    is_live = db.Column(db.Boolean)  # if True, album is live version
+    is_ep = db.Column(db.Boolean)  # if True, it's an EP (Extended Play)
     number_of_songs = db.Column(db.Integer)
     tracklist = db.relationship(
         "Song", back_populates="album", cascade="all, delete-orphan"
     )
-    total_length = db.Column(db.Time)
-    artist_id = db.Column(db.Integer)
+    total_length = db.Column(db.String)
+    artist_id = db.Column(db.Integer, db.ForeignKey("artist.id"), nullable=False)
