@@ -1,1 +1,1 @@
-from . import albums, songs
+from . import albums, songs, static_pages
