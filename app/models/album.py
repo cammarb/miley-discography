@@ -13,4 +13,4 @@ class Album(db.Model, CRUD_mixing):
         "Song", back_populates="album", cascade="all, delete-orphan"
     )
     total_length = db.Column(db.Time)
-    artist = db.Column(db.String, nullable=False)
+    artist_id = db.Column(db.Integer)
