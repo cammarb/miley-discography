@@ -10,10 +10,13 @@
 {% block container %}
 <div class="row">
     <h1>Albums</h1>
-    <div class="">
-        <button type="button" class="btn btn-primary">Add</button>
+    <div>
+        <a href="/albums/add_album">
+            <button type="button" class="btn btn-primary">Add</button></a>
     </div>
 </div>
+
+{% for album in albums %}
 <div class="row">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -34,20 +37,20 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">album.title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{album.title}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <ul>
-                    <li>Release date: album.release_date</li>
-                    <li>Number of songs: album.number_of_songs</li>
-                    <li>Lemgth: album.total_length</li>
+                    <li>Release date: {{album.release_date}}</li>
+                    <li>Number of songs: {{album.number_of_songs}}</li>
+                    <li>Lemgth: {{album.total_length}}</li>
                 </ul>
                 <button type="button" class="btn btn-primary">Edit</button>
             </div>
         </div>
     </div>
 </div>
-{% for album in albums %}
+
 {% endfor %}
 {% endblock %}
