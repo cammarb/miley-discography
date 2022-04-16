@@ -16,10 +16,11 @@ def create_app():
 
 def register_extensions(app: Flask):
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app, db, render_as_batch=True)
 
 
 def register_blueprints(app: Flask):
     app.register_blueprint(routes.songs.blueprint)
     app.register_blueprint(routes.albums.blueprint)
+    app.register_blueprint(routes.artists.blueprint)
     app.register_blueprint(routes.static_pages.blueprint)
