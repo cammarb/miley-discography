@@ -27,6 +27,7 @@ def post_album():
         release_date=datetime.strptime(request.form.get("release_date"), "%Y-%m-%d"),
         is_live=request.form.get("is_live"),
         is_ep=request.form.get("is_ep"),
+        number_of_songs=0,
         total_length=request.form.get("total_length"),
         artist_id=request.form.get("artist_id"),
     )
