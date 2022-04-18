@@ -2,6 +2,8 @@ from flask import Flask, jsonify, redirect, request, url_for, render_template
 from flask import Blueprint
 from app.models.song import Song
 from app.models.album import Album
+from app.models.song_to_artist import SongToArtist
+from app.models.artist import Artist
 
 blueprint = Blueprint("songs", __name__)
 
@@ -14,7 +16,8 @@ def get_songs():
 @blueprint.get("/songs/add_song")
 def add_song():
     albums = Album.query.all()
-    return render_template("songs/add_song.html", albums=albums)
+    artists = Artist.query.all()
+    return render_template("songs/add_song.html", albums=albums, artists=artists)
 
 
 @blueprint.post("/songs/add_song")
