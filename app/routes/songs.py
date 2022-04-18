@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, redirect, request, url_for, render_template
 from flask import Blueprint
-from app.models.song import Song, Artist
+from app.models.song import Song
+from app.models.artist import Artist
 from app.models.album import Album
 from flask_sqlalchemy import SQLAlchemy
 

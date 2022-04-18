@@ -2,7 +2,7 @@ from flask import Flask, jsonify, redirect, request, url_for, render_template
 from flask import Blueprint
 from datetime import datetime
 from app.models.album import Album
-from app.models.song import Artist
+from app.models.artist import Artist
 
 # from app.models.artist import Artist
 

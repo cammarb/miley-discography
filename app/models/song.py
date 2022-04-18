@@ -18,19 +18,9 @@ class Song(db.Model, CRUD_mixing):
     song_artist = db.relationship(
         "Artist", secondary="song_artist", backref="song_artist", lazy=True
     )
-    # song_featuring = db.relationship(
-    #     "SongFeaturing", backref="song_featuring", lazy=True
-    # )
+    song_featuring = db.relationship(
+        "SongFeaturing", backref="song_featuring", lazy=True
+    )
     length = db.Column(db.String, nullable=False)
     album_id = db.Column(db.Integer, db.ForeignKey("album.id"))
     album = db.relationship("Album", back_populates="tracklist")
-
-
-class Artist(db.Model, CRUD_mixing):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    # song_artist = db.relationship("SongArtist", backref="song_artist", lazy=True)
-    # song_featuring = db.relationship(
-    #     "SongFeaturing", backref="song_featuring", lazy=True
-    # )
-    albums = db.relationship("Album", backref="artist", lazy=True)
