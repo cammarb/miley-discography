@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, render_template, request, url_for
-from app.models.artist import Artist
+
+# from app.models.artist import Artist
+from app.models.song import Artist
 
 blueprint = Blueprint("artists", __name__)
 

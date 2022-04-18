@@ -1,9 +1,10 @@
 from flask import Flask, jsonify, redirect, request, url_for, render_template
 from flask import Blueprint
-from app.models.song import Song
+from app.models.song import Song, Artist
 from app.models.album import Album
-from app.models.song_to_artist import SongToArtist
-from app.models.artist import Artist
+from flask_sqlalchemy import SQLAlchemy
+
+dbb = SQLAlchemy()
 
 blueprint = Blueprint("songs", __name__)
 
@@ -29,6 +30,12 @@ def post_song():
         length=request.form.get("length"),
     )
     new_song.save()
+    list_of_artists = request.form.getlist("main_artist")
+    for i in range(len(list_of_artists)):
+        artist = Artist.query.get(list_of_artists[i])
+        new_song.song_artist.append(artist)
+        new_song.save()
+
     song_album = Album.query.get(new_song.album_id)
     song_album.number_of_songs = Song.query.filter_by(
         album_id=new_song.album_id
