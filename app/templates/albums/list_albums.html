@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block nav %}
+{{super()}}
 {% endblock %}
 
 {% block container %}
@@ -39,16 +40,18 @@
             </div>
             <div class="modal-body">
                 <ul>
+                    <li>Album ID: {{album.id}}</li>
                     <li>Release date: {{album.release_date}}</li>
                     <li>Number of songs: {{album.number_of_songs}}</li>
                     <li>Length: {{album.total_length}}</li>
                 </ul>
                 <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Remove</button>
+                <form method="post">
+                    <button type="submit" class="btn btn-danger" value="{{album.id}}" name="album_id">Remove</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
 {% endfor %}
 {% endblock %}

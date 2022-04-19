@@ -8,10 +8,19 @@ from app.services.albums import create_album
 blueprint = Blueprint("albums", __name__)
 
 
+# Getting all albums and list them
 @blueprint.get("/albums")
 def get_albums():
     albums = get_all(Album)
     return render_template("albums/list_albums.html", albums=albums)
+
+
+# Delete a single album
+@blueprint.post("/albums")
+def delete_album():
+    album = get_one(Album, request.form.get("album_id"))
+    album.delete()
+    return redirect(url_for("albums.get_albums"))
 
 
 @blueprint.get("/albums/add_album")
@@ -23,7 +32,12 @@ def get_album():
 @blueprint.post("/albums/add_album")
 def post_album():
     create_album(request.form)
-    return {"Album successfully created."}
+    return redirect(url_for("albums.get_albums"))
+
+
+@blueprint.get("/albums/<string:slug>/edit")
+def edit_album(slug):
+    return
 
 
 # @blueprint.get("/albums/<int:id>")
