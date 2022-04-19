@@ -1,5 +1,4 @@
 from app.models.album import Album
-from app.models.artist import Artist
 from datetime import datetime
 
 
