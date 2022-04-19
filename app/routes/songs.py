@@ -1,10 +1,10 @@
-from flask import Flask, jsonify, redirect, request, url_for, render_template
+from flask import redirect, request, render_template, url_for
 from flask import Blueprint
 from app.models.song import Song
 from app.models.artist import Artist
 from app.models.album import Album
 from flask_sqlalchemy import SQLAlchemy
-from app.services.main import get_all
+from app.services.main import get_all, get_one
 from app.services.songs import create_song
 
 dbb = SQLAlchemy()
@@ -18,6 +18,13 @@ def get_songs():
     return render_template("songs/list_songs.html", songs=songs)
 
 
+@blueprint.post("/songs")
+def delete_song():
+    song = get_one(Song, request.form.get("song_id"))
+    song.delete()
+    return redirect(url_for("songs.get_songs"))
+
+
 @blueprint.get("/songs/add_song")
 def add_song():
     albums = get_all(Album)
@@ -28,4 +35,4 @@ def add_song():
 @blueprint.post("/songs/add_song")
 def post_song():
     create_song(request.form)
-    return {"Song created successfully."}
+    return "Song created successfully."
