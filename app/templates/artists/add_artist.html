@@ -5,15 +5,17 @@
 {% endblock %}
 
 {% block nav %}
+{{super()}}
 {% endblock %}
 
 
 {% block container %}
-<form method="post">
+<!-- Add artist form -->
+<form method="post" name="add_artist">
     <div>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" placeholder="Miley Cyrus">
     </div>
-    <input type="submit" value="Add artist">
+    <button type="submit" class="btn btn-primary">Add Artist</button>
 </form>
 {% endblock %}
