@@ -26,10 +26,11 @@ def create_song(req_form):
         )  # Add to helper table relationship between Song and Artists
         new_song.save()
 
-    # Everytime you create a song the amount of songs in that album
+    # Everytime you create a song the amount of songs in that album (if present)
     # gets updated by searching all created songs related to that album_id
-    song_album = Album.query.get(new_song.album_id)
-    song_album.number_of_songs = Song.query.filter_by(
-        album_id=new_song.album_id
-    ).count()
-    song_album.save()
+    if new_song.album_id != None:
+        song_album = Album.query.get(new_song.album_id)
+        song_album.number_of_songs = Song.query.filter_by(
+            album_id=new_song.album_id
+        ).count()
+        song_album.save()

@@ -26,6 +26,7 @@
     <div>
         <label for="album_id">Album:</label>
         <select name="album_id" id="album_id">
+            <option disabled selected value>-- select an option --</option>
             {% for album in albums %}
             <option value="{{album.id}}">{{album.title}}</option>
             {% endfor %}
@@ -48,7 +49,7 @@
         </select>
     </div>
     <div>
-        <input type="submit" value="Add Song">
+        <button type="submit" class="btn btn-primary">Add Song</button>
     </div>
 </form>
 {% endblock %}

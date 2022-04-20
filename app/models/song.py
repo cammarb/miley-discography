@@ -19,7 +19,7 @@ class Song(db.Model, CRUD_mixing):
         "Artist", secondary="song_artist", backref="song_artist", lazy=True
     )
     song_featuring = db.relationship(
-        "SongFeaturing", backref="song_featuring", lazy=True
+        "Artist", secondary="song_featuring", backref="song_featuring", lazy=True
     )
     length = db.Column(db.String, nullable=False)
     album_id = db.Column(db.Integer, db.ForeignKey("album.id"))
