@@ -18,6 +18,13 @@ def create_song(req_form):
             artist
         )  # Add to helper table relationship between Song and Artists
         new_song.save()
+    featuring_artists = req_form.getlist("featuring_artist")
+    for i in range(len(featuring_artists)):
+        ft_artist = Artist.query.get(featuring_artists[i])
+        new_song.song_featuring.append(
+            ft_artist
+        )  # Add to helper table relationship between Song and Artists
+        new_song.save()
 
     # Everytime you create a song the amount of songs in that album
     # gets updated by searching all created songs related to that album_id
