@@ -1,0 +1,16 @@
+/* Font: Source Sans Pro */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+:root {
+    /* Font */
+    --font: 'Source Sans Pro', sans-serif;
+    --font-size-1: 1rem;
+    --font-size-2: 1.1rem;
+    /* Colors */
+    --bg: rgb(27, 27, 27);
+    --fg-white-100: rgb(240, 240, 240);
+    --fg-white-200: rgb(221, 221, 221);
+    --fg-pink-100: rgb(226, 33, 146);
+    --anchor-fg-hover: rgb(230, 25, 144);
+    --anchor-bg-hover: rgba(197, 58, 139, 0.301);
+}
