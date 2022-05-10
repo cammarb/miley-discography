@@ -2,10 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
 :root {
+    color-scheme: dark;
     /* Font */
     --font: 'Source Sans Pro', sans-serif;
-    --font-size-1: 1rem;
-    --font-size-2: 1.1rem;
+    --fz-1: 1em;
+    --fz-2: 1.1em;
+    --fz-3: 1.5em;
+    --fz-4: 2.2em;
     /* Colors */
     --bg: rgb(27, 27, 27);
     --bg-grey-200: #4e4e4e;
@@ -17,4 +20,9 @@
     --anchor-fg-hover: rgb(230, 25, 144);
     --anchor-bg-hover: rgba(197, 58, 139, 0.301);
     --anchor-grey-border: #828282;
+    --btn-danger: rgb(235, 53, 53);
+    --btn-danger-hover: rgb(198, 57, 57);
+
 }
+
+/* @media (prefers-color-scheme: dark) */
