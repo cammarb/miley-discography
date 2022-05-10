@@ -36,7 +36,6 @@ nav {
     margin: 0 auto;
 }
 
-#logo,
 #menu-item {
     margin: 0 0.5rem;
     padding: 0.25rem 0.5rem;
@@ -44,11 +43,32 @@ nav {
 }
 
 #logo {
-    color: var(--fg-pink-100);
+    font-size: var(--font-size-2);
+    color: var(--fg-pink-300);
 }
 
 #menu-item:hover {
     background-color: var(--anchor-bg-hover);
-    border-radius: 0.15rem;
+    border-radius: 0.5rem;
     color: var(--anchor-fg-hover);
+}
+
+.container {
+    width: 100%;
+    padding: 4rem 0;
+}
+
+/* Components */
+.btn {
+    padding: 0.4rem 0.8rem;
+    background-color: var(--bg-grey-200);
+    border-radius: 0.5rem;
+    border: 0.05rem solid var(--anchor-grey-border);
+    color: var(--fg-pink-200);
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: var(--anchor-grey-border);
+    color: var(--fg-pink-100);
 }
