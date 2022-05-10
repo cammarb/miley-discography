@@ -2,6 +2,7 @@
 {% block title %}Home{% endblock %}
 {% block head%}
 {{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock %}
 
 {% block nav %}
@@ -10,9 +11,9 @@
 
 
 {% block container %}
-<div class="row">
-    <a href="/albums" class="btn btn-primary">Albums</a>
-    <a href="/songs" class="btn btn-primary">Songs</a>
-    <a href="/artist" class="btn btn-primary">Artist</a>
+<div class="cards-menu">
+    <a href="/albums" class="btn card-btn">Albums</a>
+    <a href="/songs" class="btn card-btn">Songs</a>
+    <a href="/artist" class="btn card-btn">Artist</a>
 </div>
 {% endblock %}
