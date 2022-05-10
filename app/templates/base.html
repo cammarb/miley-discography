@@ -9,6 +9,8 @@
     <title>{% block title %}{% endblock %}</title>
     <!-- main css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- menu toggle -->
+    <script defer src="{{ url_for('static', filename='js/hamburgerMenu.js')}}"></script>
     {% endblock %}
 </head>
 
@@ -16,10 +18,12 @@
     <main>
         {% block nav %}
         <nav>
-            <a id="logo" href="/">Miley Cyrus Discography</a>
-            <button id="hamburger-btn" type="button">
-                <i id="hamburger-icon">-</i>
-            </button>
+            <div class="home-nav">
+                <a id="logo" href="/">Miley Cyrus Discography</a>
+                <button id="hamburger-btn" type="button">
+                    <i id="hamburger-icon" style="background: none;">-</i>
+                </button>
+            </div>
             <div class="menu">
                 <a id="menu-item" href="/songs">Songs</a>
                 <a id="menu-item" href="/albums">Albums</a>
