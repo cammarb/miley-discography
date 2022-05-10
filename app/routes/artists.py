@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, redirect, render_template, request, url_fo
 
 from app.models.artist import Artist
 from app.services.main import get_all, get_one
-from app.services.artists import create_artist
+from app.services.artists import create_artist, update_artist, delete
 
 blueprint = Blueprint("artists", __name__)
 
@@ -14,11 +14,23 @@ def get_artists():
     return render_template("artists/list_artists.html", artists=artists)
 
 
-# Delete artist from table
-@blueprint.post("/artists")
-def delete_artist():
-    artist = get_one(Artist, request.form.get("artist_id"))
-    artist.delete()
+# Edit artist
+@blueprint.get("/artists/<int:id>")
+def get_artist(id):
+    artist = get_one(Artist, id)
+    return render_template("artists/artist.html", artist=artist)
+
+
+@blueprint.post("/artists/<int:id>")
+def edit_artist(id):
+    update_artist(request.form, id)
+    return redirect(url_for("artists.get_artists"))
+
+
+# Delete artist
+@blueprint.post("/artists/<int:id>")
+def delete_artist(id):
+    artist.delete(id)
     return redirect(url_for("artists.get_artists"))
 
 
