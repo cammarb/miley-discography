@@ -8,9 +8,13 @@
     --font-size-2: 1.1rem;
     /* Colors */
     --bg: rgb(27, 27, 27);
+    --bg-grey-200: #4e4e4e;
     --fg-white-100: rgb(240, 240, 240);
     --fg-white-200: rgb(221, 221, 221);
-    --fg-pink-100: rgb(226, 33, 146);
+    --fg-pink-300: rgb(226, 33, 146);
+    --fg-pink-200: rgb(206, 69, 149);
+    --fg-pink-100: rgb(200, 70, 146);
     --anchor-fg-hover: rgb(230, 25, 144);
     --anchor-bg-hover: rgba(197, 58, 139, 0.301);
+    --anchor-grey-border: #828282;
 }
