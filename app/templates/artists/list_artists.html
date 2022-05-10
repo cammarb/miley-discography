@@ -10,14 +10,16 @@
 
 
 {% block container %}
-<div class="row">
+<div class="header">
     <h1>Artists</h1>
-    <div>
-        <a href="/artists/add">
-            <button type="button" class="btn btn-primary">Add</button></a>
-    </div>
+    <a href="/artists/add">
+        <button type="button" class="btn btn-primary">Add</button>
+    </a>
 </div>
 <!-- List of artists added -->
+{% if artists.items %}
+<p>No artist added yet.</p>
+{% else %}
 <table class="table table-hover">
     <thead>
         <tr>
@@ -32,12 +34,14 @@
             <td>{{artist.id}}</td>
             <td>{{artist.name}}</td>
             <td>
-                <form method="post" name="delete_artist">
-                    <button type="submit" class="btn btn-danger" value="{{artist.id}}" name="artist_id">Remove</button>
-                </form>
+                <a href="/artists/{{artist.id}}">
+                    <button class="btn">Edit</button>
+                </a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+{% endif %}
+
 {% endblock %}
