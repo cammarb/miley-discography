@@ -13,21 +13,21 @@
 </head>
 
 <body>
-    {% block nav %}
-    <nav>
-        <a id="logo" href="/">Miley Cyrus Discography</a>
-        <button id="hamburger-btn" type="button">
-            <i id="hamburger-icon">-</i>
-        </button>
-        <div class="menu">
-            <a id="menu-item" href="/songs">Songs</a>
-            <a id="menu-item" href="/albums">Albums</a>
-            <a id="menu-item" href="/artists">Artists</a>
-        </div>
-    </nav>
-    {% endblock %}
-
     <main>
+        {% block nav %}
+        <nav>
+            <a id="logo" href="/">Miley Cyrus Discography</a>
+            <button id="hamburger-btn" type="button">
+                <i id="hamburger-icon">-</i>
+            </button>
+            <div class="menu">
+                <a id="menu-item" href="/songs">Songs</a>
+                <a id="menu-item" href="/albums">Albums</a>
+                <a id="menu-item" href="/artists">Artists</a>
+            </div>
+        </nav>
+        {% endblock %}
+
         {% block container %}
         {% endblock %}
     </main>
