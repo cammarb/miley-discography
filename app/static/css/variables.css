@@ -12,6 +12,7 @@
     /* Colors */
     --bg: rgb(27, 27, 27);
     --bg-grey-200: #4e4e4e;
+    --bg-grey-100: #7474743d;
     --fg-white-100: rgb(240, 240, 240);
     --fg-white-200: rgb(221, 221, 221);
     --fg-pink-300: rgb(226, 33, 146);
@@ -19,7 +20,7 @@
     --fg-pink-100: rgb(200, 70, 146);
     --anchor-fg-hover: rgb(230, 25, 144);
     --anchor-bg-hover: rgba(197, 58, 139, 0.301);
-    --anchor-grey-border: #828282;
+    --grey-border: #98989896;
     --btn-danger: rgb(235, 53, 53);
     --btn-danger-hover: rgb(198, 57, 57);
 
