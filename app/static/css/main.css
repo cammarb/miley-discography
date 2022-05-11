@@ -88,13 +88,13 @@ nav {
     padding: 0.4rem 0.8rem;
     background-color: var(--bg-grey-200);
     border-radius: 0.5rem;
-    border: 0.05rem solid var(--anchor-grey-border);
+    border: 0.05rem solid var(--grey-border);
     color: var(--fg-pink-200);
     font-weight: 600;
 }
 
 .btn:hover {
-    background-color: var(--anchor-grey-border);
+    background-color: var(--grey-border);
     color: var(--fg-pink-100);
 }
 
@@ -106,6 +106,15 @@ nav {
 .btn-danger:hover {
     background-color: var(--btn-danger-hover);
     color: var(--fg-white-200);
+}
+
+/* Header */
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
 }
 
 /* Hamburger menu */
@@ -126,13 +135,27 @@ nav {
     flex-direction: row;
 }
 
-/* Header */
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+/* Tables */
+table {
+    margin: 1rem auto;
+    width: 100%;
+    border-collapse: collapse;
 }
+
+thead th,
+tbody td {
+    text-align: start;
+    padding: 0.4rem 0.8rem;
+}
+
+td {
+    border: 1px solid var(--grey-border);
+}
+
+tr:hover td {
+    background-color: var(--bg-grey-100);
+}
+
 
 @media (max-width: 60em) {
     nav {
@@ -145,7 +168,6 @@ nav {
         display: block;
     }
 
-
     .menu {
         display: none;
         width: 100%;
@@ -157,6 +179,7 @@ nav {
 
     .open {
         display: flex;
+        padding-bottom: 0.5rem;
     }
 
 }
