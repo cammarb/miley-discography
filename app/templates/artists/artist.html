@@ -11,7 +11,7 @@
 
 {% block container %}
 <!-- Add artist form -->
-<form action="{{ url_for('artists.edit_artist', id=artist.id)}}" method="post">
+<form action="{{ url_for('artists.update_artist', id=artist.id)}}" method="post">
     <div>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="{{ request.form.get('name') or artist.name }}">
