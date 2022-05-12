@@ -13,11 +13,11 @@
         {% block title %}Albums{% endblock %}
     </h1>
     <a href="/albums/add_album">
-        <button type="button" class="btn btn-primary">Add</button></a>
+        <button type="button" class="btn ">Add</button></a>
 </div>
 
 <!-- List of albums added -->
-{% if not albums.items %}
+{% if not albums %}
 <p>No albums added yet.</p>
 {% else %}
 {% for album in albums %}
@@ -26,7 +26,7 @@
         <div class="card-body">
             <h5 class="card-title">{{album.title}}</h5>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#more_info">
+            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#more_info">
                 More info
             </button>
         </div>
@@ -48,7 +48,7 @@
                     <li>Number of songs: {{album.number_of_songs}}</li>
                     <li>Length: {{album.total_length}}</li>
                 </ul>
-                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn ">Edit</button>
                 <form method="post">
                     <button type="submit" class="btn btn-danger" value="{{album.id}}" name="album_id">Remove</button>
                 </form>
