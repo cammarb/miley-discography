@@ -12,7 +12,8 @@ blueprint = Blueprint("albums", __name__)
 @blueprint.get("/albums")
 def get_albums():
     albums = get_all(Album)
-    return render_template("albums/list_albums.html", albums=albums)
+    artists = get_all(Artist)
+    return render_template("albums/list_albums.html", albums=albums, artists=artists)
 
 
 # Delete a single album
