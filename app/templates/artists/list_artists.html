@@ -1,5 +1,4 @@
 {% extends 'base.html'%}
-{% block title %}All Artist{% endblock %}
 {% block head%}
 {{super()}}
 {% endblock %}
@@ -11,14 +10,18 @@
 
 {% block container %}
 <div class="header">
-    <h1>Artists</h1>
+    <h1>
+        {% block title %}
+        Artists
+        {% endblock %}
+    </h1>
     <a href="/artists/add">
         <button type="button" class="btn btn-primary">Add</button>
     </a>
 </div>
 <!-- List of artists added -->
-{% if artists.items %}
-<p>No artist added yet.</p>
+{% if not artists.items %}
+<p>No artists added yet.</p>
 {% else %}
 <table>
     <thead>
@@ -45,5 +48,4 @@
     </tbody>
 </table>
 {% endif %}
-
 {% endblock %}

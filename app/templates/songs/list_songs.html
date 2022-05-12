@@ -1,5 +1,4 @@
 {% extends 'base.html'%}
-{% block title %}Songs{% endblock %}
 {% block head%}
 {{super()}}
 {% endblock %}
@@ -9,16 +8,21 @@
 {% endblock %}
 
 {% block container %}
-<div class="row">
-    <h1>Songs</h1>
-    <div>
-        <a href="/songs/add_song">
-            <button type="button" class="btn btn-primary">Add</button></a>
-    </div>
+<div class="header">
+    <h1>
+        {% block title %}
+        Songs
+        {% endblock %}
+    </h1>
+    <a href="/songs/add_song">
+        <button type="button" class="btn btn-primary">Add</button></a>
 </div>
 
 <!-- List of songs added -->
-<table class="table table-hover">
+{% if not songs.items %}
+<p>No songs added yet.</p>
+{% else %}
+<table>
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -45,4 +49,5 @@
         {% endfor %}
     </tbody>
 </table>
+{% endif %}
 {% endblock %}

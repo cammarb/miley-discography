@@ -1,5 +1,4 @@
 {% extends 'base.html'%}
-{% block title %}Albums{% endblock %}
 {% block head%}
 {{super()}}
 {% endblock %}
@@ -9,14 +8,18 @@
 {% endblock %}
 
 {% block container %}
-<div class="row">
-    <h1>Albums</h1>
-    <div>
-        <a href="/albums/add_album">
-            <button type="button" class="btn btn-primary">Add</button></a>
-    </div>
+<div class="header">
+    <h1>
+        {% block title %}Albums{% endblock %}
+    </h1>
+    <a href="/albums/add_album">
+        <button type="button" class="btn btn-primary">Add</button></a>
 </div>
 
+<!-- List of albums added -->
+{% if not albums.items %}
+<p>No albums added yet.</p>
+{% else %}
 {% for album in albums %}
 <div class="row">
     <div class="card" style="width: 18rem;">
@@ -54,4 +57,5 @@
     </div>
 </div>
 {% endfor %}
+{% endif %}
 {% endblock %}
