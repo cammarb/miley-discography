@@ -51,6 +51,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    border-bottom: 1px solid var(--grey-border);
 }
 
 .home-nav {
@@ -80,7 +81,7 @@ nav {
 
 .container {
     width: 100%;
-    padding: 4rem 0;
+    padding: 5rem 0;
 }
 
 /* Components */
@@ -154,6 +155,18 @@ td {
 
 tr:hover td {
     background-color: var(--bg-grey-100);
+}
+
+/* Forms */
+form label {
+    padding-right: 1rem;
+}
+
+form input {
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--grey-border);
+    margin-right: 0.8rem;
 }
 
 
