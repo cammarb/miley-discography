@@ -20,42 +20,39 @@
 {% if not albums %}
 <p>No albums added yet.</p>
 {% else %}
-{% for album in albums %}
-<div class="row">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{album.title}}</h5>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#more_info">
-                More info
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Album info Modal -->
-<div class="modal fade" id="more_info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{album.title}}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <ul>
-                    <li>Album ID: {{album.id}}</li>
-                    <li>Release date: {{album.release_date}}</li>
-                    <li>Number of songs: {{album.number_of_songs}}</li>
-                    <li>Length: {{album.total_length}}</li>
-                </ul>
-                <button type="button" class="btn ">Edit</button>
-                <form method="post">
-                    <button type="submit" class="btn btn-danger" value="{{album.id}}" name="album_id">Remove</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{% endfor %}
+<table>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Release Date</th>
+            <th scope="col"># of songs</th>
+            <th scope="col">Total Length</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for album in albums %}
+        <tr>
+            <td>{{album.id}}</td>
+            <td>{{album.title}}</td>
+            {% for artist in artists %}
+            {% if artist["id"] == album.artist_id %}
+            <td>{{artist["name"]}}</td>
+            {% endif %}
+            {% endfor %}
+            <td>{{album.release_date}}</td>
+            <td>{{album.number_of_songs}}</td>
+            <td>{{album.total_length}}</td>
+            <td>
+                <a href="/albums/{{album.id}}">
+                    <button class="btn">Edit</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endif %}
 {% endblock %}
