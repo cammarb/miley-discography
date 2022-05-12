@@ -158,15 +158,28 @@ tr:hover td {
 }
 
 /* Forms */
-form label {
+form label,
+form select {
     padding-right: 1rem;
 }
 
-form input {
+form input,
+form select {
     padding: 0.4rem 0.8rem;
     border-radius: 0.5rem;
     border: 0.1rem solid var(--grey-border);
     margin-right: 0.8rem;
+}
+
+form input[type=checkbox] {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
 }
 
 
