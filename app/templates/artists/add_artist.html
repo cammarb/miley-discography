@@ -1,5 +1,4 @@
 {% extends 'base.html'%}
-{% block title %}Add Artist{% endblock %}
 {% block head%}
 {{super()}}
 {% endblock %}
@@ -10,10 +9,15 @@
 
 
 {% block container %}
+<div class="header">
+    <h1>
+        {% block title %}Add Artist{% endblock %}
+    </h1>
+</div>
 <!-- Add artist form -->
 <form method="post" name="add_artist">
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" placeholder="Miley Cyrus">
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn ">Add</button>
 </form>
 {% endblock %}

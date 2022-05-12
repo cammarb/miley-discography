@@ -1,5 +1,4 @@
 {% extends 'base.html'%}
-{% block title %}Add Album{% endblock %}
 {% block head%}
 {{super()}}
 {% endblock %}
@@ -10,6 +9,12 @@
 
 
 {% block container %}
+<div class="header">
+    <h1>
+        {% block title %}Add Album{% endblock %}
+    </h1>
+</div>
+
 <form method="post">
     <div>
         <label for="title">Title:</label>
@@ -38,13 +43,14 @@
     <div>
         <label for="artist_id">Artist:</label>
         <select name="artist_id" id="artist_id">
+            <option disabled selected value>-- select an option --</option>
             {% for artist in artists%}
             <option value="{{artist.id}}">{{artist.name}}</option>
             {% endfor %}
         </select>
     </div>
     <div>
-        <input type="submit" value="Add album">
+        <button type="submit" class="btn">Add</button>
     </div>
 </form>
 {% endblock %}
