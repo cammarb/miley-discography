@@ -34,3 +34,34 @@ def create_song(req_form):
             album_id=new_song.album_id
         ).count()
         song_album.save()
+
+
+def edit_song(req_form, id):
+    song = Song.query.get(id)
+    song.title = req_form.get("title")
+    song.slug = req_form.get("slug")
+    song.album_id = req_form.get("album_id")
+    song.length = req_form.get("length")
+    song.save()
+    list_of_artists = req_form.getlist("main_artist")
+    for i in range(len(list_of_artists)):
+        artist = Artist.query.get(list_of_artists[i])
+        song.song_artist.append(
+            artist
+        )  # Add to helper table relationship between Song and Artists
+        song.save()
+    featuring_artists = req_form.getlist("featuring_artist")
+    for i in range(len(featuring_artists)):
+        ft_artist = Artist.query.get(featuring_artists[i])
+        song.song_featuring.append(
+            ft_artist
+        )  # Add to helper table relationship between Song and Artists
+        song.save()
+
+
+def delete(id):
+    song = Song.query.get(id)
+    song_album = Album.query.get(song.album_id)
+    song.delete()
+    song_album.number_of_songs = Song.query.filter_by(album_id=song.album_id).count()
+    song_album.save()
