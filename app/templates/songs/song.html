@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+{% block head%}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{{super()}}
+{% endblock %}
+
+
+{% block container %}
+<div class="header">
+    <h1>
+        {% block title %}Update Song{% endblock %}
+    </h1>
+</div>
+<form method="post" action="{{ url_for('songs.update_song', id=song.id) }}">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" placeholder="See You Again"
+            value="{{ request.form.get('title') or song.title }}">
+    </div>
+    <div>
+        <label for="slug">Slug:</label>
+        <input type="text" name="slug" id="slug" placeholder="see-you-again"
+            value="{{ request.form.get('slug') or song.slug }}">
+    </div>
+    <div>
+        <label for=" length">Length:</label>
+        <input type="text" name="length" id="length" value="{{ request.form.get('length') or song.length }}">
+    </div>
+    <div>
+        <label for="album_id">Album:</label>
+        <select name="album_id" id="album_id">
+            <option disabled selected value>-- select an option --</option>
+            {% for album in albums %}
+            <option value="{{ request.form.get('album.id') or album.id }}">{{album.title}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="main_artist">Main Artist:</label>
+        <select name="main_artist" id="main_artist" multiple="multiple" size="2">
+            <option disabled selected value>-- select an option --</option>
+            {% for artist in artists %}
+            <option value="{{ request.form.get('main_artist') or artist.id }}">{{artist.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="featuring_artist">Featuring Artist:</label>
+        <select name="featuring_artist" id="featuring_artist" multiple="multiple" size="2">
+            <option disabled selected value>-- select an option --</option>
+            {% for artist in artists %}
+            <option value="{{ request.form.get('featuring_artist') or artist.id }}">{{artist.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn">Update</button>
+    </div>
+</form>
+<form action="{{ url_for('songs.delete_song', id=song.id) }}" method="post">
+    <button type="submit" class="btn btn-danger">Remove</button>
+</form>
+{% endblock %}

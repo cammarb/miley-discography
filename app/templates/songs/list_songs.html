@@ -41,9 +41,7 @@
             <td>{{song.length}}</td>
             <td>{{song.album_id}}</td>
             <td>
-                <form method="post">
-                    <button type="submit" class="btn btn-danger" value="{{song.id}}" name="song_id">Remove</button>
-                </form>
+                <a class="btn" href="/songs/{{song.id}}">Edit</a>
             </td>
         </tr>
         {% endfor %}
