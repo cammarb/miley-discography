@@ -14,3 +14,16 @@ def create_album(req_form):
         artist_id=req_form.get("artist_id"),
     )
     new_album.save()
+
+
+def edit(req_form, id):
+    album = Album.query.get(id)
+    album.title = req_form.get("title")
+    album.slug = req_form.get("slug")
+    album.release_date = datetime.strptime(req_form.get("release_date"), "%Y-%m-%d")
+    album.is_live = req_form.get("is_live")
+    album.is_ep = req_form.get("is_ep")
+    album.number_of_songs = 0
+    album.total_length = req_form.get("total_length")
+    album.artist_id = req_form.get("artist_id")
+    album.save()
