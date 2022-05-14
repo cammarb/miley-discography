@@ -11,7 +11,7 @@
 {% block container %}
 <div class="header">
     <h1>
-        {% block title %}Add Album{% endblock %}
+        {% block title %}Album{% endblock %}
     </h1>
 </div>
 
@@ -49,7 +49,11 @@
         <label for="artist_id">Artist:</label>
         <select name="artist_id" id="artist_id">
             {% for artist in artists %}
-            <option value="{{ request.form.get('artist_id') or artist.id}}">{{artist.name}}</option>
+            {% if album.artist_id == artist.id %}
+            <option selected value="{{ request.form.get('artist_id') or artist.id }}">{{artist.name}}</option>
+            {% else %}
+            <option value="{{ request.form.get('artist_id') or artist.id }}">{{artist.name}}</option>
+            {% endif %}
             {% endfor %}
         </select>
     </div>
