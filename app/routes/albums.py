@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, redirect, request, url_for, render_template
+from flask import redirect, request, url_for, render_template
 from flask import Blueprint
 from app.models.album import Album
 from app.models.artist import Artist
@@ -47,13 +47,3 @@ def delete_album(id):
     album = get_one(Album, id)
     album.delete()
     return redirect(url_for("albums.get_albums"))
-
-
-# @blueprint.get("/albums/<int:id>")
-# def get_album(id):
-#     album = Album.query.get(id)
-#     return render_template("albums/.html", album=album)
-
-
-# @blueprint.post('/albums')
-# def add_album():
