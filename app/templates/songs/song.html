@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% block head%}
 {{super()}}
+<script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
 {% endblock %}
 
 {% block nav %}
@@ -14,6 +15,7 @@
         {% block title %}Update Song{% endblock %}
     </h1>
 </div>
+
 <form method="post" action="{{ url_for('songs.update_song', id=song.id) }}">
     <div>
         <label for="title">Title:</label>
@@ -43,15 +45,16 @@
     </div>
     <div>
         <label for="main_artist">Main Artist:</label>
-        <div name="main_artist" id="main_artist" multiple="multiple" size="2">
+        <div name="main_artist">
             {% for song_artist in song_artists %}
             {% if (song_artist.song_id == song.id)%}
             {% for artist in artists %}
             {% if (song_artist.artist_id == artist.id) %}
-            <input type="checkbox" checked
+            <input type="checkbox" class="mainArtist" checked
                 value="{{ request.form.getlist('main_artist') or artist.id }}">{{artist.name}}
             {% else %}
-            <input type="checkbox" value="{{ request.form.getlist('main_artist') or artist.id }}">{{artist.name}}
+            <input type="checkbox" class="mainArtist"
+                value="{{ request.form.getlist('main_artist') or artist.id }}">{{artist.name}}
             {% endif %}
             {% endfor %}
             {% endif %}
