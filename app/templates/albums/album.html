@@ -57,5 +57,8 @@
         <button type="submit" class="btn">Update</button>
     </div>
 </form>
-<form method="post" action="{{ url_for('albums.delete_album', id=album.id)}}"></form>
+<form method="post" action="{{ url_for('albums.delete_album', id=album.id)}}">
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+</form>
 {% endblock %}
