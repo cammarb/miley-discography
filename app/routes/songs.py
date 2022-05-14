@@ -1,6 +1,6 @@
 from flask import redirect, request, render_template, url_for
 from flask import Blueprint
-from app.models.song import Song
+from app.models.song import Song, SongArtist, SongFeaturing
 from app.models.artist import Artist
 from app.models.album import Album
 from flask_sqlalchemy import SQLAlchemy
@@ -21,9 +21,18 @@ def get_songs():
 @blueprint.get("/songs/<int:id>")
 def get_song(id):
     song = get_one(Song, id)
+    song_artists = get_all(SongArtist)
+    song_featurings = get_all(SongFeaturing)
     albums = get_all(Album)
     artists = get_all(Artist)
-    return render_template("songs/song.html", song=song, albums=albums, artists=artists)
+    return render_template(
+        "songs/song.html",
+        song=song,
+        albums=albums,
+        artists=artists,
+        song_artists=song_artists,
+        song_featurings=song_featurings,
+    )
 
 
 @blueprint.post("/songs/<int:id>/edit")
