@@ -32,27 +32,44 @@
     <div>
         <label for="album_id">Album:</label>
         <select name="album_id" id="album_id">
-            <option disabled selected value>-- select an option --</option>
             {% for album in albums %}
+            {% if song.album_id == album.id %}
+            <option selected value="{{ request.form.get('album.id') or album.id }}">{{album.title}}</option>
+            {% else %}
             <option value="{{ request.form.get('album.id') or album.id }}">{{album.title}}</option>
+            {% endif %}
             {% endfor %}
         </select>
     </div>
     <div>
         <label for="main_artist">Main Artist:</label>
-        <select name="main_artist" id="main_artist" multiple="multiple" size="2">
-            <option disabled selected value>-- select an option --</option>
+        <div name="main_artist" id="main_artist" multiple="multiple" size="2">
+            {% for song_artist in song_artists %}
+            {% if (song_artist.song_id == song.id)%}
             {% for artist in artists %}
-            <option value="{{ request.form.get('main_artist') or artist.id }}">{{artist.name}}</option>
+            {% if (song_artist.artist_id == artist.id) %}
+            <input type="checkbox" checked
+                value="{{ request.form.getlist('main_artist') or artist.id }}">{{artist.name}}
+            {% else %}
+            <input type="checkbox" value="{{ request.form.getlist('main_artist') or artist.id }}">{{artist.name}}
+            {% endif %}
             {% endfor %}
-        </select>
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
     <div>
         <label for="featuring_artist">Featuring Artist:</label>
         <select name="featuring_artist" id="featuring_artist" multiple="multiple" size="2">
-            <option disabled selected value>-- select an option --</option>
             {% for artist in artists %}
-            <option value="{{ request.form.get('featuring_artist') or artist.id }}">{{artist.name}}</option>
+            {% for song_featuring in song_featurings %}
+            {% if ((song_featuring.song_id == song.id) and (song_featuring.artist_id == artist.id)) %}
+            <option selected value="{{ request.form.getlist('featuring_artist') or artist.id }}">{{artist.name}}
+            </option>
+            {% else %}
+            <option value="{{ request.form.getlist('featuring_artist') or artist.id }}">{{artist.name}}</option>
+            {% endif %}
+            {% endfor %}
             {% endfor %}
         </select>
     </div>
