@@ -1,7 +1,6 @@
 {% extends 'base.html'%}
 {% block head%}
 {{super()}}
-<script src="{{ url_for('static', filename='js/multiselect-dropdown.js') }}"></script>
 {% endblock %}
 
 {% block nav %}
@@ -15,15 +14,6 @@
         {% block title %}Update Song{% endblock %}
     </h1>
 </div>
-
-<select name="cars" id="cars" multiple multiselect-max-items="3">
-    <option value="1">Audi</option>
-    <option selected value="2">BMW</option>
-    <option selected value="3">Mercedes</option>
-    <option value="4">Volvo</option>
-    <option value="5">Lexus</option>
-    <option value="6">Tesla</option>
-</select>
 
 <form method="post" action="{{ url_for('songs.update_song', id=song.id) }}">
     <div>
