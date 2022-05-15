@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% block head%}
 {{super()}}
+<script src="{{ url_for('static',filename='js/multiselect.js') }}"></script>
 {% endblock %}
 
 {% block nav %}
@@ -36,14 +37,19 @@
             {% endfor %}
         </select>
     </div>
-    <div>
-        <label for="main_artist">Main Artist:</label>
-        <select name="main_artist" id="main_artist" multiple="multiple" size="2">
-            <option disabled selected value>-- select an option --</option>
+    <div class="multiselect">
+        <div class="selectBox">
+            <select>
+                <option>Select an option</option>
+            </select>
+            <div class="overSelect"></div>
+        </div>
+        <div id="checkboxes">
             {% for artist in artists %}
-            <option value="{{artist.id}}">{{artist.name}}</option>
+            <label for="{{artist.id}}"><input type="checkbox" id="{{artist.id}}"
+                    value="{{artist.id}}">{{artist.name}}</label>
             {% endfor %}
-        </select>
+        </div>
     </div>
     <div>
         <label for="featuring_artist">Featuring Artist:</label>
