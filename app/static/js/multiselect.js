@@ -1,14 +1,26 @@
-const selectBtn = document.getElementById("select-btn");
-var open = false;
+var openArtist = false;
+var openFeaturing = false;
 
-function toggleSelect() {
-    var optionsContainer = document.getElementById("options-container");
-    if (!open) {
+function toggleArtist() {
+    var optionsContainer = document.getElementById("artist-container");
+    if (!openArtist) {
         optionsContainer.style.display = "block";
-        open = true;
+        openArtist = true;
     }
     else {
         optionsContainer.style.display = "none";
-        open = false;
+        openArtist = false;
+    }
+};
+
+function toggleFeaturing() {
+    var optionsContainer = document.getElementById("featuring-container");
+    if (!openFeaturing) {
+        optionsContainer.style.display = "block";
+        openFeaturing = true;
+    }
+    else {
+        optionsContainer.style.display = "none";
+        openFeaturing = false;
     }
 };
