@@ -179,12 +179,49 @@ form input[type=checkbox] {
 
 form div {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin: 0.5rem 0;
 }
 
 /* Multiselect */
+.select-container {
+    flex-direction: column;
+    min-width: 200px;
+}
 
+#select-btn {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--grey-border);
+    color: var(--grey-border);
+    margin-bottom: 0 !important;
+}
+
+#angle-down-icon {
+    color: var(--fg-white-100);
+}
+
+#options-container {
+    width: max-content;
+    border: 1px solid var(--grey-border);
+    border-radius: 0.5rem;
+    margin-top: 0 !important;
+    flex-direction: column;
+    display: none;
+}
+
+.option {
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+}
+
+.option:hover {
+    background-color: var(--anchor-bg-hover);
+}
 
 
 @media (max-width: 60em) {
