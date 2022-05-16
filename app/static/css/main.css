@@ -205,7 +205,8 @@ form div {
     color: var(--fg-white-100);
 }
 
-#options-container {
+#artist-container,
+#featuring-container {
     width: max-content;
     border: 1px solid var(--grey-border);
     border-radius: 0.5rem;
