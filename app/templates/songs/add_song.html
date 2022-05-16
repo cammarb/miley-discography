@@ -41,11 +41,11 @@
     <div>
         <label for="main_artist">Main Artist:</label>
         <div class="select-container" id="main_artist" name="main_artist">
-            <div id="select-btn" onclick="toggleSelect()">
+            <div id="select-btn" onclick="toggleArtist()">
                 Select Options
                 <i id="angle-down-icon" class="uis uis-angle-down"></i>
             </div>
-            <div id="options-container">
+            <div id="artist-container">
                 {% for artist in artists %}
                 <div class="option">
                     <input type="checkbox" value="{{artist.id}}">{{artist.name}}
@@ -58,11 +58,11 @@
     <div>
         <label for="featuring_artist">Featuring Artist:</label>
         <div class="select-container" id="featuring_artist" name="featuring_artist">
-            <div id="select-btn" onclick="toggleSelect()">
+            <div id="select-btn" onclick="toggleFeaturing()">
                 Select Options
                 <i id="angle-down-icon" class="uis uis-angle-down"></i>
             </div>
-            <div id="options-container">
+            <div id="featuring-container">
                 {% for artist in artists %}
                 <div class="option">
                     <input type="checkbox" value="{{artist.id}}">{{artist.name}}
