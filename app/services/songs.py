@@ -1,6 +1,6 @@
 from app.models.album import Album
 from app.models.artist import Artist
-from app.models.song import Song
+from app.models.song import Song, SongArtist, SongFeaturing
 
 
 def create_song(req_form):
@@ -18,7 +18,7 @@ def create_song(req_form):
             artist
         )  # Add to helper table relationship between Song and Artists
         new_song.save()
-    featuring_artists = req_form.getlist("featuring_artist")
+    featuring_artists = req_form.getlist("ft_artist")
     for i in range(len(featuring_artists)):
         ft_artist = Artist.query.get(featuring_artists[i])
         new_song.song_featuring.append(
@@ -43,6 +43,13 @@ def edit_song(req_form, id):
     song.album_id = req_form.get("album_id")
     song.length = req_form.get("length")
     song.save()
+
+    # First we remove the previously added relationships
+    list_song_artists = SongArtist.query.filter_by(song_id=id)
+    for song_artist in list_song_artists:
+        song_artist.delete()
+
+    # Then we add the artists selected
     list_of_artists = req_form.getlist("main_artist")
     for i in range(len(list_of_artists)):
         artist = Artist.query.get(list_of_artists[i])
@@ -50,7 +57,7 @@ def edit_song(req_form, id):
             artist
         )  # Add to helper table relationship between Song and Artists
         song.save()
-    featuring_artists = req_form.getlist("featuring_artist")
+    featuring_artists = req_form.getlist("ft_artist")
     for i in range(len(featuring_artists)):
         ft_artist = Artist.query.get(featuring_artists[i])
         song.song_featuring.append(
