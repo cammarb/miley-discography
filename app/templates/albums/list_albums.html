@@ -23,19 +23,16 @@
 <table>
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Title</th>
             <th scope="col">Artist</th>
             <th scope="col">Release Date</th>
             <th scope="col"># of songs</th>
-            <th scope="col">Total Length</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for album in albums %}
         <tr>
-            <td>{{album.id}}</td>
             <td>{{album.title}}</td>
             {% for artist in artists %}
             {% if artist["id"] == album.artist_id %}
@@ -44,7 +41,6 @@
             {% endfor %}
             <td>{{album.release_date}}</td>
             <td>{{album.number_of_songs}}</td>
-            <td>{{album.total_length}}</td>
             <td>
                 <a href="/albums/{{album.id}}">
                     <button class="btn">Edit</button>
