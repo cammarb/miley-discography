@@ -197,12 +197,7 @@ form div {
     padding: 0.4rem 0.8rem;
     border-radius: 0.5rem;
     border: 0.1rem solid var(--grey-border);
-    color: var(--grey-border);
     margin-bottom: 0 !important;
-}
-
-#angle-down-icon {
-    color: var(--fg-white-100);
 }
 
 #artist-container,
