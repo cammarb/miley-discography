@@ -16,6 +16,18 @@
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="{{ request.form.get('name') or artist.name }}">
     </div>
+    <div>
+        <label for="albums">Albums:</label>
+        <p name="albums" id="albums">{{artist_albums}}</p>
+    </div>
+    <div>
+        <label for="songs">Songs:</label>
+        <p name="songs" id="songs">{{artist_songs}}</p>
+    </div>
+    <div>
+        <label for="ft">Appearance in songs:</label>
+        <p name="ft" id="ft">{{featuring_songs}}</p>
+    </div>
     <button type="submit" class="btn ">Update</button>
 </form>
 <form action="{{ url_for('artists.delete_artist', id=artist.id) }}" method="post">
