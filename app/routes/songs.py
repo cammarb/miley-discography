@@ -22,8 +22,8 @@ def get_songs():
 @blueprint.get("/songs/<int:id>")
 def get_song(id):
     song = get_one(Song, id)
-    song_artists = get_all(SongArtist)
-    song_featurings = get_all(SongFeaturing)
+    song_artists = SongArtist.query.filter_by(song_id=id)
+    song_featurings = SongFeaturing.query.filter_by(song_id=id)
     albums = get_all(Album)
     artists = get_all(Artist)
     return render_template(
@@ -58,4 +58,4 @@ def add_song():
 @blueprint.post("/songs/add_song")
 def post_song():
     create_song(request.form)
-    return "Song created successfully."
+    return redirect(url_for("songs.get_songs"))
