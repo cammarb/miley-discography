@@ -48,6 +48,9 @@ def edit_song(req_form, id):
     list_song_artists = SongArtist.query.filter_by(song_id=id)
     for song_artist in list_song_artists:
         song_artist.delete()
+    list_song_featurings = SongArtist.query.filter_by(song_id=id)
+    for song_featuring in list_song_featurings:
+        song_featuring.delete()
 
     # Then we add the artists selected
     list_of_artists = req_form.getlist("main_artist")
