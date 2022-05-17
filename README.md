@@ -1,4 +1,8 @@
 # Miley Cyrus Discography database Website
 
 ### Tech stack
-- Python Flask
+- Backend:
+  - Python Flask
+- Frontend:
+  - CSS
+  - Vanilla Javascript
