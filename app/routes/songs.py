@@ -15,7 +15,8 @@ blueprint = Blueprint("songs", __name__)
 @blueprint.get("/songs")
 def get_songs():
     songs = get_all(Song)
-    return render_template("songs/list_songs.html", songs=songs)
+    albums = get_all(Album)
+    return render_template("songs/list_songs.html", songs=songs, albums=albums)
 
 
 @blueprint.get("/songs/<int:id>")
