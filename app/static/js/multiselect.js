@@ -24,3 +24,10 @@ function toggleFeaturing() {
         openFeaturing = false;
     }
 };
+
+// Change checked
+
+function checkChange() {
+    const checkbox = document.getElementById("main_artist");
+    checkbox.toggleAttribute("checked");
+};
