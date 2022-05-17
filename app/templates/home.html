@@ -12,8 +12,24 @@
 
 {% block container %}
 <div class="cards-menu">
-    <a href="/albums" class="btn card-btn">Albums</a>
-    <a href="/songs" class="btn card-btn">Songs</a>
-    <a href="/artists" class="btn card-btn">Artist</a>
+    <a href="/albums" class="btn card-btn">
+        <img src="{{ url_for('static', filename='img/album.svg') }}" id="svg-img" alt="CD">
+        <div class="card-title">
+            <h3>Albums</h3>
+        </div>
+    </a>
+    <a href="/songs" class="btn card-btn">
+        <img src="{{ url_for('static', filename='img/song.svg') }}" id="svg-img" alt="Musical notes">
+        <div class="card-title">
+            <h3>Songs</h3>
+        </div>
+    </a>
+    <a href="/artists" class="btn card-btn">
+        <img src="{{ url_for('static', filename='img/artist.svg') }}" id="svg-img" alt="Microphone">
+        <div class="card-title">
+            <h3>Artists</h3>
+        </div>
+
+    </a>
 </div>
 {% endblock %}

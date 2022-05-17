@@ -3,6 +3,29 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.card-btn {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
+
+.card-btn * {
+    background: none !important;
+}
+
+#svg-img {
+    width: 10rem;
+}
+
+.card-title {
+    margin-top: 0.8rem;
+}
+
+/* .card-title h3 {
+    color: var(--fg-pink-300);
+} */
