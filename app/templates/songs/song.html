@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% block head%}
 {{super()}}
+<script src="{{ url_for('static',filename='js/multiselect.js') }}"></script>
 {% endblock %}
 
 {% block nav %}
@@ -43,22 +44,39 @@
         </select>
     </div>
     <div>
-        <label for="main_artist">Main Artist:</label>
-        <select name="main_artist" class="ui selection dropdown" multiple="" id="multi-select">
-            <option disabled value="">-- select option --</option>
-            {% for artist in artists %}
-            <option value="{{artist.id}}">{{artist.name}}</option>
-            {% endfor %}
-        </select>
+        <label for="main_artists">Main Artist(s):</label>
+        <div class="select-container" id="main_artists" name="main_artists">
+            <div id="select-btn" onclick="toggleArtist()">
+                Select Options
+                <i id="angle-down-icon" class="uis uis-angle-down"></i>
+            </div>
+            <div id="artist-container">
+                {% for artist in artists %}
+                <div class="option">
+                    <input {% for song_artist in song_artists %} {% if (artist.id==song_artist.artist_id) %} checked {%
+                        endif %} {% endfor %} type="checkbox" name="main_artist" id="main_artist"
+                        onchange="checkChange()" value="{{artist.id}}">{{artist.name}}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
     <div>
-        <label for="featuring_artist">Featuring Artist:</label>
-        <select name="featuring_artist" class="ui selection dropdown" multiple="" id="multi-select">
-            <option disabled value="">-- select an option --</option>
-            {% for artist in artists %}
-            <option value="{{artist.id}}">{{artist.name}}</option>
-            {% endfor %}
-        </select>
+        <label for="featuring_artists">Featuring Artist(s):</label>
+        <div class="select-container" id="featuring_artists" name="featuring_artists">
+            <div id="select-btn" onclick="toggleFeaturing()">
+                Select Options
+                <i id="angle-down-icon" class="uis uis-angle-down"></i>
+            </div>
+            <div id="featuring-container">
+
+                {% for artist in artists %}
+                <div class="option">
+                    <input type="checkbox" name="ft_artist" value="{{artist.id}}">{{artist.name}}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
     <div>
         <button type="submit" class="btn">Update</button>
