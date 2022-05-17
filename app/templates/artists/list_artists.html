@@ -26,18 +26,14 @@
 <table>
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
-            <th scope="col"># of songs</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for artist in artists %}
         <tr>
-            <td>{{artist.id}}</td>
             <td>{{artist.name}}</td>
-            <td></td>
             <td>
                 <a href="/artists/{{artist.id}}">
                     <button class="btn">Edit</button>
