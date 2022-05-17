@@ -47,7 +47,7 @@
         <label for="main_artists">Main Artist(s):</label>
         <div class="select-container" id="main_artists" name="main_artists">
             <div id="select-btn" onclick="toggleArtist()">
-                Select Options
+                <span id="selected">Select Options</span>
                 <i id="angle-down-icon" class="uis uis-angle-down"></i>
             </div>
             <div id="artist-container">
@@ -55,7 +55,7 @@
                 <div class="option">
                     <input {% for song_artist in song_artists %} {% if (artist.id==song_artist.artist_id) %} checked {%
                         endif %} {% endfor %} type="checkbox" name="main_artist" id="main_artist"
-                        onchange="checkChange()" value="{{artist.id}}">{{artist.name}}
+                        onchange="checkArtistChange()" value="{{artist.id}}">{{artist.name}}
                 </div>
                 {% endfor %}
             </div>
@@ -69,10 +69,11 @@
                 <i id="angle-down-icon" class="uis uis-angle-down"></i>
             </div>
             <div id="featuring-container">
-
                 {% for artist in artists %}
                 <div class="option">
-                    <input type="checkbox" name="ft_artist" value="{{artist.id}}">{{artist.name}}
+                    <input {% for song_featuring in song_featurings %} {% if (artist.id==song_featuring.featuring_id) %}
+                        checked {% endif %} {% endfor %} type="checkbox" name="ft_artist" id="ft_artist"
+                        onchange="checkFeaturingChange()" value="{{artist.id}}">{{artist.name}}
                 </div>
                 {% endfor %}
             </div>

@@ -26,8 +26,11 @@ function toggleFeaturing() {
 };
 
 // Change checked
-
-function checkChange() {
+function checkArtistChange() {
+    const checkbox = document.getElementById("main_artist");
+    checkbox.toggleAttribute("checked");
+};
+function checkFeaturingChange() {
     const checkbox = document.getElementById("main_artist");
     checkbox.toggleAttribute("checked");
 };
