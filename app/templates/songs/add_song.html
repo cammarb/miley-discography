@@ -31,7 +31,7 @@
     <div>
         <label for="album_id">Album:</label>
         <select name="album_id" id="album_id">
-            <option disabled selected value>-- select an option --</option>
+            <option disabled selected value>Select an Option</option>
             {% for album in albums %}
             <option value="{{album.id}}">{{album.title}}</option>
             {% endfor %}
