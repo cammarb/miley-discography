@@ -25,9 +25,7 @@
 <table>
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Title</th>
-            <th scope="col">Slug</th>
             <th scope="col">Length</th>
             <th scope="col">Album</th>
         </tr>
@@ -35,11 +33,15 @@
     <tbody>
         {% for song in songs %}
         <tr>
-            <td>{{song.id}}</td>
             <td>{{song.title}}</td>
-            <td>{{song.slug}}</td>
             <td>{{song.length}}</td>
-            <td>{{song.album_id}}</td>
+            {% for album in albums %}
+            {% if (album.id == song.album_id) %}
+            <td>
+                {{ album.title }}
+            </td>
+            {% endif %}
+            {% endfor %}
             <td>
                 <a class="btn" href="/songs/{{song.id}}">Edit</a>
             </td>
