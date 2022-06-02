@@ -30,12 +30,20 @@
                 <a id="menu-item" href="/songs">Songs</a>
                 <a id="menu-item" href="/albums">Albums</a>
                 <a id="menu-item" href="/artists">Artists</a>
-                <a id="account-item" href="/login">
-                    <button class="btn">Login</button>
-                </a>
-                <a id="account-item" href="/login">
-                    <button class="btn">Logout</button>
-                </a>
+                <div class="account-info">
+                    {% if current_user.is_annonymous %}
+                    <a id="account-item" href="/login">
+                        <button class="btn">Login</button>
+                    </a>
+                    {% elif current_user.is_authenticated %}
+                    <button id="user">
+                        @{{ current_user.username }}
+                    </button>
+                    <a id="account-item" href="{{ url_for('auth.logout') }}">
+                        <button class="btn btn-danger">Logout</button>
+                    </a>
+                    {% endif %}
+                </div>
             </div>
         </nav>
         {% endblock %}

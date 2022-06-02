@@ -79,6 +79,11 @@ nav {
     color: var(--anchor-fg-hover);
 }
 
+.account-info {
+    display: flex;
+    align-items: center;
+}
+
 .container {
     width: 100%;
     padding: 5rem 0;
