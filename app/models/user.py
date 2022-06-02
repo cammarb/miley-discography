@@ -1,3 +1,4 @@
+from enum import unique
 from app.extensions.database import db, CRUD_mixing
 from flask_login import UserMixin
 
@@ -7,3 +8,4 @@ class User(db.Model, CRUD_mixing, UserMixin):
     email = db.Column(db.String(100), unique=True)
     name = db.Column(db.String(100))
     passwd = db.Column(db.String(300))
+    username = db.Column(db.String(100))
