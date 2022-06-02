@@ -12,6 +12,7 @@ def register(req_form):
         new_user = User(
             name=req_form["name"],
             email=req_form["email"],
+            username=req_form["email"].split("@")[0],
             passwd=generate_password_hash(req_form["password"]),
         )
         new_user.save()
