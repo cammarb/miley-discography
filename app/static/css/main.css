@@ -71,6 +71,7 @@ nav {
 #logo {
     font-size: var(--fz-2);
     color: var(--fg-pink-300);
+    font-weight: 600;
 }
 
 #menu-item:hover {
@@ -79,9 +80,20 @@ nav {
     color: var(--anchor-fg-hover);
 }
 
-.account-info {
+#account-item {
     display: flex;
-    align-items: center;
+    width: fit-content;
+    margin: 0 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--anchor-bg-hover);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#logout {
+    background: none;
+    padding-left: 0.5rem;
 }
 
 .container {
@@ -140,6 +152,7 @@ nav {
 .menu {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 /* Tables */
