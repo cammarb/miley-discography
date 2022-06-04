@@ -12,8 +12,10 @@
     <h1>
         {% block title %}Albums{% endblock %}
     </h1>
+    {% if current_user.is_authenticated %}
     <a href="/albums/add_album">
         <button type="button" class="btn ">Add</button></a>
+    {% endif %}
 </div>
 
 <!-- List of albums added -->
@@ -27,7 +29,10 @@
             <th scope="col">Artist</th>
             <th scope="col">Release Date</th>
             <th scope="col"># of songs</th>
+            {% if current_user.is_authenticated %}
             <th scope="col">Actions</th>
+            {% endif %}
+
         </tr>
     </thead>
     <tbody>
@@ -41,11 +46,13 @@
             {% endfor %}
             <td>{{album.release_date}}</td>
             <td>{{album.number_of_songs}}</td>
+            {% if current_user.is_authenticated %}
             <td>
                 <a href="/albums/{{album.id}}">
                     <button class="btn">Edit</button>
                 </a>
             </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

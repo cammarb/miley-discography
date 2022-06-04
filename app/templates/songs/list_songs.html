@@ -14,8 +14,10 @@
         Songs
         {% endblock %}
     </h1>
+    {% if current_user.is_authenticated %}
     <a href="/songs/add_song">
         <button type="button" class="btn ">Add</button></a>
+    {% endif %}
 </div>
 
 <!-- List of songs added -->
@@ -42,10 +44,12 @@
             </td>
             {% endif %}
             {% endfor %}
+            {% if current_user.is_authenticated %}
             <td>
                 <a href="/songs/{{song.id}}">
                     <button class="btn">Edit</button></a>
             </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

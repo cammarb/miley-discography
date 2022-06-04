@@ -15,9 +15,11 @@
         Artists
         {% endblock %}
     </h1>
+    {% if current_user.is_authenticated %}
     <a href="/artists/add">
         <button type="button" class="btn ">Add</button>
     </a>
+    {% endif %}
 </div>
 <!-- List of artists added -->
 {% if not artists %}
@@ -27,18 +29,25 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
+            {% if current_user.is_authenticated %}
+
             <th scope="col">Actions</th>
+            {% endif %}
+
         </tr>
     </thead>
     <tbody>
         {% for artist in artists %}
         <tr>
             <td>{{artist.name}}</td>
+            {% if current_user.is_authenticated %}
             <td>
                 <a href="/artists/{{artist.id}}">
                     <button class="btn">Edit</button>
                 </a>
             </td>
+            {% endif %}
+
         </tr>
         {% endfor %}
     </tbody>
