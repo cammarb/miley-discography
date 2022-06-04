@@ -1,5 +1,6 @@
 from flask import redirect, request, render_template, url_for
 from flask import Blueprint
+from flask_login import login_required
 from app.models.song import Song, SongArtist, SongFeaturing
 from app.models.artist import Artist
 from app.models.album import Album
@@ -20,6 +21,7 @@ def get_songs():
 
 
 @blueprint.get("/songs/<int:id>")
+@login_required
 def get_song(id):
     song = get_one(Song, id)
     song_artists = SongArtist.query.filter_by(song_id=id)
@@ -37,18 +39,21 @@ def get_song(id):
 
 
 @blueprint.post("/songs/<int:id>/edit")
+@login_required
 def update_song(id):
     edit_song(request.form, id)
     return redirect(url_for("songs.get_songs"))
 
 
 @blueprint.post("/songs/<int:id>/delete")
+@login_required
 def delete_song(id):
     delete(id)
     return redirect(url_for("songs.get_songs"))
 
 
 @blueprint.get("/songs/add_song")
+@login_required
 def add_song():
     albums = get_all(Album)
     artists = get_all(Artist)
@@ -56,6 +61,7 @@ def add_song():
 
 
 @blueprint.post("/songs/add_song")
+@login_required
 def post_song():
     create_song(request.form)
     return redirect(url_for("songs.get_songs"))

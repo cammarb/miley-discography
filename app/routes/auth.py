@@ -8,12 +8,12 @@ from app.services.auth import *
 blueprint = Blueprint("auth", __name__)
 
 
-@blueprint.get("/register")
+@blueprint.get("/admin-registration")
 def get_register():
     return render_template("auth/register.html")
 
 
-@blueprint.post("/register")
+@blueprint.post("/admin-registration")
 def post_register():
     try:
         register(request.form)

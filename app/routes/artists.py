@@ -1,6 +1,5 @@
-from gzip import READ
 from flask import Blueprint, jsonify, redirect, render_template, request, url_for
-
+from flask_login import login_required
 from app.models.artist import Artist
 from app.models.album import Album
 from app.models.song import SongArtist, SongFeaturing
@@ -17,12 +16,16 @@ def get_artists():
 
 
 # Add artist
+
+
 @blueprint.get("/artists/add")
+@login_required
 def add_artist():
     return render_template("artists/add_artist.html")
 
 
 @blueprint.post("/artists/add")
+@login_required
 def post_artist():
     create_artist(request.form)
     return redirect(url_for("artists.get_artists"))
@@ -30,6 +33,7 @@ def post_artist():
 
 # Edit artist
 @blueprint.get("/artists/<int:id>")
+@login_required
 def get_artist(id):
     artist = get_one(Artist, id)
     artist_albums = Album.query.filter_by(artist_id=id).count()
@@ -45,6 +49,7 @@ def get_artist(id):
 
 
 @blueprint.post("/artists/<int:id>/update")
+@login_required
 def update_artist(id):
     edit_artist(request.form, id)
     return redirect(url_for("artists.get_artists"))
@@ -52,6 +57,7 @@ def update_artist(id):
 
 # Delete artist
 @blueprint.post("/artists/<int:id>/delete")
+@login_required
 def delete_artist(id):
     delete(id)
     return redirect(url_for("artists.get_artists"))
