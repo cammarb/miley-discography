@@ -4,5 +4,6 @@
 - Backend:
   - Python Flask
 - Frontend:
+  - HTML
   - CSS
   - Vanilla Javascript
