@@ -11,7 +11,28 @@
 
 
 {% block container %}
-<div class="cards-menu">
+<div class="home-header">
+    <div class="heading-container">
+        <h1>
+            Miley Cyrus Discography Website
+        </h1>
+        <p>
+            This is the management system for the complete Miley Cyrus discography database.
+            Made to be accessed by the free and open source <a href="https://miley-api.herokuapp.com/api"
+                id="miley-api-link">Miley API <i class="uil uil-github-alt"></i></a>
+        </p>
+        <a href="/songs">
+            <button class="btn-alt">
+                explore
+            </button>
+        </a>
+    </div>
+    <div class="cd-container">
+        <img src="{{ url_for('static', filename='img/plastic-hearts.jpg') }}"
+            alt="miley cyrus album artwork 'Plastic hearts'" srcset="" id="cd-img">
+    </div>
+</div>
+<!-- <div class="cards-menu">
     <a href="/songs" class="btn card-btn">
         <img src="{{ url_for('static', filename='img/song.svg') }}" id="svg-img" alt="Musical notes">
         <div class="card-title">
@@ -31,5 +52,5 @@
         </div>
 
     </a>
-</div>
+</div> -->
 {% endblock %}
