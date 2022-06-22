@@ -63,13 +63,15 @@ nav {
 }
 
 #menu-item {
+    color: var(--bg-grey-300);
     margin: 0 0.5rem;
     padding: 0.25rem 0.5rem;
     font-size: var(--fz-2);
 }
 
 #logo {
-    font-size: var(--fz-2);
+    font-family: var(--miley-font);
+    font-size: var(--fz-3);
     color: var(--fg-pink-300);
     font-weight: 600;
 }
@@ -96,9 +98,25 @@ nav {
     padding-left: 0.5rem;
 }
 
+#github {
+    margin: 0 1rem 0 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: var(--fz-2);
+    background: none;
+}
+
+#github i {
+    color: var(--bg-grey-300);
+}
+
+#github i:hover {
+    color: var(--fg-white-100);
+}
+
 .container {
     width: 100%;
     padding: 5rem 0;
+    min-height: 100vh;
 }
 
 /* Components */
@@ -110,6 +128,20 @@ nav {
     border: 0.05rem solid var(--grey-border);
     color: var(--fg-pink-200);
     font-weight: 600;
+}
+
+.btn-alt {
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--btn-pink);
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--fg-white-100);
+    font-weight: 600;
+}
+
+.btn-alt:hover {
+    background-color: var(--btn-pink-hover);
 }
 
 .btn:hover {
