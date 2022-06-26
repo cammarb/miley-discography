@@ -1,0 +1,7 @@
+.single_album {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+}

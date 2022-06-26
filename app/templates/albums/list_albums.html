@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% block head%}
 {{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/albums.css') }}">
 {% endblock %}
 
 {% block nav %}
@@ -22,7 +23,35 @@
 {% if not albums %}
 <p>No albums added yet.</p>
 {% else %}
-<table>
+{% for album in albums %}
+<div class="single_album">
+    <div class="album_info">
+        <h2> {{album.title}}</h2>
+        {% for artist in artists %}
+        {% if artist["id"] == album.artist_id %}
+        <h3>By: {{artist["name"]}}</h3>
+        {% endif %}
+        {% endfor %}
+        <h4>Release date: {{album.release_date}}</h4>
+        <p># of songs: {{album.number_of_songs}}</p>
+        {% if current_user.is_authenticated %}
+        <a href="/albums/{{album.id}}">
+            <button class="btn">Edit</button>
+        </a>
+        {% endif %}
+    </div>
+    <div class="tracklist">
+        <ol>
+            {% for song_in_album in album.tracklist %}
+            <li>{{ song_in_album['title'] }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endfor %}
+
+
+<!-- <table>
     <thead>
         <tr>
             <th scope="col">Title</th>
@@ -56,6 +85,6 @@
         </tr>
         {% endfor %}
     </tbody>
-</table>
+</table> -->
 {% endif %}
 {% endblock %}
