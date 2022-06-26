@@ -200,8 +200,12 @@ tbody td {
     padding: 0.4rem 0.8rem;
 }
 
-td {
+/* td {
     border: 1px solid var(--grey-border);
+} */
+
+th {
+    border-bottom: 1px solid var(--grey-border);
 }
 
 tr:hover td {
