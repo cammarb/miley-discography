@@ -15,7 +15,7 @@
     </h1>
     {% if current_user.is_authenticated %}
     <a href="/albums/add_album">
-        <button type="button" class="btn ">Add</button></a>
+        <button type="button" class="btn-alt">Add</button></a>
     {% endif %}
 </div>
 
@@ -36,11 +36,12 @@
         <p># of songs: {{album.number_of_songs}}</p>
         {% if current_user.is_authenticated %}
         <a href="/albums/{{album.id}}">
-            <button class="btn">Edit</button>
+            <button class="btn-alt">Edit</button>
         </a>
         {% endif %}
     </div>
     <div class="tracklist">
+        <h4>Tracklist</h4>
         <ol>
             {% for song_in_album in album.tracklist %}
             <li>{{ song_in_album['title'] }}</li>
