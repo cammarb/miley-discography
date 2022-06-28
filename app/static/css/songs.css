@@ -14,6 +14,7 @@
 
 #album-link {
     color: var(--fg-pink-300);
+    background: none;
 }
 
 @media (max-width: 40em) {
