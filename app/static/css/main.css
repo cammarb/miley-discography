@@ -10,7 +10,7 @@
     text-decoration: none;
 
     color: var(--fg-white-100);
-    background-color: var(--bg);
+    /* background-color: var(--bg); */
 }
 
 /* Fonts */
@@ -33,6 +33,7 @@ p {
 body {
     width: 100%;
     min-height: 100vh;
+    background: linear-gradient(151deg, rgba(38, 38, 38, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
 }
 
 main {
@@ -99,7 +100,7 @@ nav {
 }
 
 #github {
-    margin: 0 1rem 0 0.5rem;
+    margin: 0 1rem 0 1rem;
     padding: 0.25rem 0.5rem;
     font-size: var(--fz-2);
     background: none;
@@ -113,10 +114,17 @@ nav {
     color: var(--fg-white-100);
 }
 
+#login-btn {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 .container {
     width: 100%;
     padding: 5rem 0;
     min-height: 100vh;
+    /* background-image: url(../img/plastic-hearts.jpg); */
+    /* backdrop-filter: blur(30px); */
 }
 
 /* Components */
@@ -132,7 +140,7 @@ nav {
 
 .btn-alt {
     cursor: pointer;
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 1rem;
     background-color: var(--btn-pink);
     border-radius: 0.5rem;
     border: none;
@@ -170,11 +178,14 @@ nav {
 
 /* Hamburger menu */
 #hamburger-btn {
+    background: none;
+    font-size: 1.2em;
     display: none;
     border: none;
     padding: 0.4rem 0.8rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    z-index: 9999;
 }
 
 #hamburger-btn:hover {
@@ -182,6 +193,7 @@ nav {
 }
 
 .menu {
+    /* background-color: var(--bg); */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -288,15 +300,34 @@ form div {
     .menu {
         display: none;
         width: 100%;
+        /* padding: 1rem 0; */
         flex-direction: column;
         text-align: center;
         align-self: center;
-        gap: 0.5rem;
+        justify-content: center;
+        gap: 2rem;
+
+        margin: auto auto;
+        padding: 4em;
+
+        /* transform: translateX(100%);
+        transition: transform 350ms ease-out; */
+
+        position: fixed;
+        z-index: 1000;
+        inset: 0;
+
+        background-color: rgba(0, 0, 0, 0.808);
+        backdrop-filter: blur(30px);
+        font-size: 1.5em;
     }
 
-    .open {
+    .menu.open {
+        width: 100vw;
         display: flex;
-        padding-bottom: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.541);
+        backdrop-filter: blur(30px);
+        /* background: linear-gradient(151deg, rgba(38, 38, 38, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%); */
     }
 
 }
